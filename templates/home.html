@@ -1,0 +1,465 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>The Pet Shop | Home</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="{% static 'css/mdb.min.css' %}" rel="stylesheet">
+    <!-- Your custom styles (optional) -->
+    <link href="{% static 'css/style.min.css' %}" rel="stylesheet">
+    <style type="text/css">
+        html,
+        body,
+        header,
+        .carousel {
+            height: 60vh;
+        }
+
+        @media (max-width: 740px) {
+
+            html,
+            body,
+            header,
+            .carousel {
+                height: 100vh;
+            }
+        }
+
+        @media (min-width: 800px) and (max-width: 850px) {
+
+            html,
+            body,
+            header,
+            .carousel {
+                height: 100vh;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+<!-- Navbar -->
+<nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar">
+    <div class="container">
+
+        <!-- Brand -->
+        <a class="navbar-brand waves-effect" href="{% url 'HomeView' %}">
+            <strong class="blue-text">The Pet Shop</strong>
+        </a>
+
+        <!-- Collapse -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Links -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+            <!-- Left -->
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link waves-effect" href="#">Home
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link waves-effect" href="{% url 'contact' %}">Contact
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+
+                <!--Display menu upon conditions::authenticated-->
+                {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link waves-effect" href="#">
+                            Hello, {{ request.user.username }}
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                     <li class="nav-item">
+                        <a class="nav-link waves-effect" href="{% url 'logout' %}">Logout
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link waves-effect" href="{% url 'register' %}">Register
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link waves-effect" href="{% url 'userLogin' %}">Login
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                {% endif %}
+
+
+            </ul>
+
+            <!-- Right -->
+            <ul class="navbar-nav nav-flex-icons">
+                <li class="nav-item">
+                    <a class="nav-link waves-effect">
+                        <span class="badge red z-depth-1 mr-1"> 1 </span>
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="clearfix d-none d-sm-inline-block"> Cart </span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</nav>
+<!-- Navbar -->
+
+<!--Carousel Wrapper-->
+<div id="carousel-example-1z" class="carousel slide carousel-fade pt-4" data-ride="carousel">
+
+    <!--Indicators-->
+    <ol class="carousel-indicators">
+        <li data-target="#carousel-example-1z" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel-example-1z" data-slide-to="1"></li>
+        <li data-target="#carousel-example-1z" data-slide-to="2"></li>
+    </ol>
+    <!--/.Indicators-->
+
+    <!--Carousel Slides-->
+    <div class="carousel-inner" role="listbox">
+
+        <!--First slide-->
+        <div class="carousel-item active">
+            <div class="view"
+                 style="background-image: url('{% static "image/pet1.jpg" %}');
+                         background-repeat: no-repeat;
+                         object-fit: cover;
+                         object-position: center center;
+                         background-size: cover;">
+
+                <!-- Mask & flexbox options-->
+                <div class="mask rgba-black-strong d-flex justify-content-center align-items-center">
+
+                    <!-- Content -->
+                    <div class="text-center white-text mx-5 wow fadeIn">
+                        <h1 class="mb-4">
+                            <strong> The Pet Shop Online</strong>
+                        </h1>
+
+                        <p>
+                            <strong>Best & quality products for local and foreign breeds</strong>
+                        </p>
+
+                        <p class="mb-4 d-none d-md-block">
+                            <strong>We provide the best product quality for all breeds of pet. Quality is our hallmark</strong>
+                        </p>
+
+                        <a target="_blank" href="https://mdbootstrap.com/education/bootstrap/"
+                           class="btn btn-outline-white btn-lg">Start
+                            free tutorial
+                            <i class="fas fa-graduation-cap ml-2"></i>
+                        </a>
+                    </div>
+                    <!-- Content -->
+
+                </div>
+                <!-- Mask & flexbox options-->
+
+            </div>
+        </div>
+        <!--/First slide-->
+
+        <!--Second slide-->
+        <div class="carousel-item">
+            <div class="view"
+                 style="
+                         background-image: url('{% static "image/pet2.jpg" %}');
+                         background-repeat: no-repeat;
+                         align-content: center;
+                         object-fit: cover;
+                         object-position: center center;
+                         background-size: cover;">
+
+                <!-- Mask & flexbox options-->
+                <div class="mask rgba-black-strong d-flex justify-content-center align-items-center">
+
+                    <!-- Content -->
+                    <div class="text-center white-text mx-5 wow fadeIn">
+                        <h1 class="mb-4">
+                            <strong>The Pet Shop Online</strong>
+                        </h1>
+
+                        <p>
+                            <strong>Best & affordable pet products across the globe</strong>
+                        </p>
+
+                        <p class="mb-4 d-none d-md-block">
+                            <strong>Buy whatever pet or pet products you want at an affordable and competitive rate</strong>
+                        </p>
+
+                        <a target="_blank" href="https://mdbootstrap.com/education/bootstrap/"
+                           class="btn btn-outline-white btn-lg">Start
+                            free tutorial
+                            <i class="fas fa-graduation-cap ml-2"></i>
+                        </a>
+                    </div>
+                    <!-- Content -->
+
+                </div>
+                <!-- Mask & flexbox options-->
+
+            </div>
+        </div>
+        <!--/Second slide-->
+
+        <!--Third slide-->
+        <div class="carousel-item">
+            <div class="view"
+                 style="
+                         background-image: url('{% static "image/pet3.jpg" %}');
+                         background-repeat: no-repeat;
+                         object-fit: cover;
+                         object-position: center center;
+                         background-size: cover;">
+
+                <!-- Mask & flexbox options-->
+                <div class="mask rgba-black-strong d-flex justify-content-center align-items-center">
+
+                    <!-- Content -->
+                    <div class="text-center white-text mx-5 wow fadeIn">
+                       <h1 class="mb-4">
+                            <strong> The Pet Shop Online</strong>
+                        </h1>
+
+                        <p>
+                            <strong>Best & quality products for local and foreign breeds</strong>
+                        </p>
+
+                        <p class="mb-4 d-none d-md-block">
+                            <strong>We provide the best product quality for all breeds of pet. Quality is our hallmark</strong>
+                        </p>
+
+                        <a target="_blank" href="https://mdbootstrap.com/education/bootstrap/"
+                           class="btn btn-outline-white btn-lg">Start
+                            free tutorial
+                            <i class="fas fa-graduation-cap ml-2"></i>
+                        </a>
+                    </div>
+                    <!-- Content -->
+
+                </div>
+                <!-- Mask & flexbox options-->
+
+            </div>
+        </div>
+        <!--/Third slide-->
+
+    </div>
+    <!--/.Slides-->
+
+    <!--Controls-->
+    <a class="carousel-control-prev" href="#carousel-example-1z" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carousel-example-1z" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+    <!--/.Controls-->
+
+</div>
+<!--/.Carousel Wrapper-->
+
+<!--Main layout-->
+<main>
+    <div class="container">
+
+       <div style="margin-top: 7%"></div>
+
+        <!--Section: Products v.3-->
+        <section class="text-center mb-4">
+
+
+            <!--Grid row-->
+            <div class="row wow fadeIn">
+
+                <!-- Loop through Items Models -->
+                {% for object in object_list %}
+                    <!--Grid column-->
+                    <div class="col-lg-3 col-md-6 mb-4">
+
+                        <!--Card-->
+                        <div class="card">
+
+                            <!--Card image-->
+                            <div class="view overlay">
+                                <!--Display the image for a product-->
+                                <img src="{{ object.image.url }}"
+                                     class="card-img-top"
+                                     alt="">
+                                <a href="{% url 'ProductDetailView' object.slug %}">
+                                    <div class="mask rgba-white-slight"></div>
+                                </a>
+                            </div>
+                            <!--Card image-->
+
+                            <!--Card content-->
+                            <div class="card-body text-center">
+                                <!--Display the category for a product-->
+                                <a href="{% url 'ProductDetailView' object.slug %}" class="grey-text">
+                                    <h5>{{ object.get_categories_display }}</h5>
+                                </a>
+                                <h5>
+                                    <strong>
+                                        <a href="{% url 'ProductDetailView' object.slug %}"
+                                           class="dark-grey-text">{{ object.title }}
+                                            <span class="badge badge-pill {{ object.get_labels_display }}-color">NEW</span>
+                                        </a>
+                                    </strong>
+                                </h5>
+
+                                <h4 class="font-weight-bold blue-text">
+                                     <!--Display the discount price if available for a product-->
+                                    {% if object.discount_price %}
+                                        <strong>$ {{ object.discount_price }}</strong>
+                                    {% else %}
+                                        <strong>$ {{ object.price }}</strong>
+                                    {% endif %}
+                                </h4>
+
+                                <button class="fas fa-shopping-cart btn-info "  data-product="{{ object.slug }}"> Add to Cart</button>
+
+                            </div>
+                            <!--Card content-->
+
+                        </div>
+                        <!--Card-->
+
+                    </div>
+                    <!--Grid column-->
+                {% endfor %}
+
+            </div>
+            <!--Grid row-->
+
+        </section>
+        <!--Section: Products v.3-->
+
+        <!--Pagination-->
+        <nav class="d-flex justify-content-center wow fadeIn">
+            <ul class="pagination pg-blue">
+
+                <!--Arrow left-->
+                <li class="page-item disabled">
+                    <a class="page-link" href="#" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                </li>
+
+                <li class="page-item active">
+                    <a class="page-link" href="#">1
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="#">2</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="#">3</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="#">4</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="#">5</a>
+                </li>
+
+                <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <!--Pagination-->
+
+    </div>
+</main>
+<!--Main layout-->
+
+<!--Footer-->
+<footer class="page-footer text-center font-small mt-4 wow fadeIn">
+
+    <!--Call to action-->
+    <div class="pt-4">
+
+    </div>
+    <!--/.Call to action-->
+
+    <hr class="my-4">
+
+    <!-- Social icons -->
+    <div class="pb-4">
+        <a href="https://www.facebook.com/mdbootstrap" target="_blank">
+            <i class="fab fa-facebook-f mr-3"></i>
+        </a>
+
+        <a href="https://twitter.com/MDBootstrap" target="_blank">
+            <i class="fab fa-twitter mr-3"></i>
+        </a>
+
+        <a href="https://www.youtube.com/watch?v=7MUISDJ5ZZ4" target="_blank">
+            <i class="fab fa-youtube mr-3"></i>
+        </a>
+
+        <a href="https://github.com/mdbootstrap/bootstrap-material-design" target="_blank">
+            <i class="fab fa-github mr-3"></i>
+        </a>
+
+    </div>
+    <!-- Social icons -->
+
+    <!--Copyright-->
+    <div class="footer-copyright py-3">
+        © 2021 Copyright:
+        <a href="#" target="_blank"> Python Project </a>
+    </div>
+    <!--/.Copyright-->
+
+</footer>
+<!--/.Footer-->
+
+<!-- SCRIPTS -->
+<!-- JQuery -->
+<script type="text/javascript" src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="{% static 'js/popper.min.js' %}"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="{% static 'js/mdb.min.js' %}"></script>
+<!-- Initializations -->
+<script type="text/javascript" src="{% static 'js/cart.js' %}"></script>
+<script type="text/javascript">
+    // Animations initialization
+    new WOW().init();
+
+</script>
+</body>
+
+</html>
